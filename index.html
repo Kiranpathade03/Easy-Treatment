@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+     :root {
+        --purple: hsl(240, 80%, 89%);
+        --pink: hsl(0, 59%, 94%);
+        --light-bg: hsl(204, 37%, 92%);
+        --light-gray-bg: hsl(0, 0%, 94%);
+        --white: hsl(0, 0%, 100%);
+        --dark: hsl(0, 0%, 7%);
+        --text-gray: hsl(0, 0%, 30%);
+    }
+    
+    body {
+        background: var(--light-bg);
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--dark);
+    }
+    
+    h3 {
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+    
+    p {
+        font-size: 1em;
+        line-height: 1.7;
+        font-weight: 300;
+        color: var(--text-gray);
+    }
+    
+    .description {
+        white-space: wrap;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .wrap {
+        display: flex;
+        justify: space-between;
+        align-items: stretch;
+        width: 100%;
+        gap: 24px;
+        padding: 24px;
+        flex-wrap: wrap;
+    }
+    
+    .box {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        position: relative;
+        padding: 24px;
+        background: #fff;
+    }
+    
+    .box-top {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+    
+    .box-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 50% 20%;
+    }
+    
+    .title-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .box-title {
+        border-left: 3px solid var(--purple);
+        padding-left: 12px;
+    }
+    
+    .user-follow-info {
+        color: hsl(0, 0%, 60%);
+    }
+    
+    .button {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: auto;
+        padding: 16px;
+        color: #000;
+        background: transparent;
+        box-shadow: 0px 0px 0px 1px black inset;
+        transition: background 0.4s ease;
+    }
+    
+    .button:hover {
+        background: var(--purple);
+    }
+    
+    .fill-one {
+        background: var(--light-bg);
+    }
+    
+    .fill-two {
+        background: var(--pink);
+    }
+    /* RESPONSIVE QUERIES */
+    
+    @media (min-width: 320px) {
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 460px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 640px) {
+        .box {
+            flex-basis: calc(50% - 12px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 840px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .box {
+            flex-basis: calc(33.3% - 16px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1100px) {
+        .box {
+            flex-basis: calc(25% - 18px);
+        }
+    }
+    
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    
+     :root {
+        --purple: hsl(240, 80%, 89%);
+        --pink: hsl(0, 59%, 94%);
+        --light-bg: hsl(204, 37%, 92%);
+        --light-gray-bg: hsl(0, 0%, 94%);
+        --white: hsl(0, 0%, 100%);
+        --dark: hsl(0, 0%, 7%);
+        --text-gray: hsl(0, 0%, 30%);
+    }
+    
+    body {
+        background: var(--light-bg);
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--dark);
+    }
+    
+    h3 {
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+    
+    p {
+        font-size: 1em;
+        line-height: 1.7;
+        font-weight: 300;
+        color: var(--text-gray);
+    }
+    
+    .description {
+        white-space: wrap;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .wrap {
+        display: flex;
+        justify: space-between;
+        align-items: stretch;
+        width: 100%;
+        gap: 24px;
+        padding: 9px;
+        flex-wrap: wrap;
+    }
+    
+    .box {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        position: relative;
+        padding: 23px;
+        background: #fff;
+    }
+    
+    .box-top {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 12px;
+        margin-bottom: 2px;
+    }
+    
+    .box-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        object-position: 50% 20%;
+    }
+    
+    .title-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .box-title {
+        border-left: 3px solid var(--purple);
+        padding-left: 12px;
+    }
+    
+    .user-follow-info {
+        color: hsl(0, 0%, 60%);
+    }
+    
+    .button {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: auto;
+        padding: 16px;
+        color: #000;
+        background: transparent;
+        box-shadow: 0px 0px 0px 1px black inset;
+        transition: background 0.4s ease;
+    }
+    
+    .button:hover {
+        background: var(--purple);
+    }
+    
+    .fill-one {
+        background: var(--light-bg);
+    }
+    
+    .fill-two {
+        background: var(--pink);
+    }
+    /* RESPONSIVE QUERIES */
+    
+    @media (min-width: 320px) {
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 460px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 640px) {
+        .box {
+            flex-basis: calc(50% - 12px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 840px) {
+        .title-flex {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .box {
+            flex-basis: calc(33.3% - 16px);
+        }
+        .title-flex {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: start;
+        }
+        .user-follow-info {
+            margin-top: 6px;
+        }
+    }
+    
+    @media (min-width: 1100px) {
+        .box {
+            flex-basis: calc(25% - 18px);
+        }
+    }
+    /*start nav bar*/
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #00a8fc;
+    }
+    /*End Navigation bar*/
+</style>
+
+<body>
+    <!--start nav bar-->
+    <ul class="horizontal gray">
+        <li><a href="javascript:void(0)">Home</a></li>
+
+        <li><a class="active" href="javascript:void(0)">Contact</a></li>
+        <li class="rightli" style="float:right">
+            <a href="login.html"> <strong> LOG IN</strong></a>
+        </li>
+    </ul>
+    <!--End nav bar-->
+
+    <div class="wrap">
+
+        <div class="box">
+
+            <div class="box-top">
+                <img class="box-image" src="https://static.toiimg.com/thumb/msid-80148973,width-400,resizemode-4/80148973.jpg" alt="Hospital image">
+                <div class="title-flex">
+                    <h3 class="box-title">Acidental Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Accidental hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="Accidental.html" class="button">View All Hospital</a>
+
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="https://hindustanlive.net/wp-content/uploads/2020/02/unnamed.jpg" alt="Hospital image">
+                <div class="title-flex">
+                    <h3 class="box-title">Child Care Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Child Care hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="child.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="https://content.jdmagicbox.com/comp/def_content/dentist/default-dentist-1.jpg" alt="Hospital image">
+                <div class="title-flex">
+                    <h3 class="box-title">Dental Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Dental hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="Dental.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFJL9xthwCMc3UssQiXSub-gh3G8T286J_o5hZkzAUlQ&usqp=CAU&ec=48600113" alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">Eye Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Eye hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="Eye.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src=" https://assets.thehansindia.com/h-upload/2022/03/01/1600x960_1279449-govt-ent-hospital.jpg" alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">Government Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Government hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="Government.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="https://th.bing.com/th/id/R.e3d33d45606254648056252314f97f27?rik=8HvHluz7IndhSw&riu=http%3a%2f%2fwww.rcnsanjibanhospital.com%2fimages%2fGYNAECOLOGY.jpg&ehk=fNi%2bbqTC2TWSLwjpszU8W4px0FcmuGIJ6lF6hJzKgv8%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">gynecologist Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Gynaecological hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="GYNECOLOGIST.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src=" https://www.deccanherald.com/sites/dh/files/article_images/2018/07/02/doctor-check-up1530516760.jpg" alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">Physician Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Physician hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="physician.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src=" https://mumbaimirror.indiatimes.com/thumb/66001811.cms?resizemode=4&width=400" alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">Skin Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Skin hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="Skin.html" class="button">View All Hospital</a>
+        </div>
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="https://rajhospitals.com/img/leproscopy-min.jpg" alt="Hospital Image">
+                <div class="title-flex">
+                    <h3 class="box-title">Surgery Hospital</h3>
+                </div>
+                <p class="description">
+                    <h5>Explore All Surgery hospital <br>Click to View All Hospital</h5>
+                </p>
+            </div>
+            <a href="SURGERY .html" class="button">View All Hospital</a>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+
+</html>
